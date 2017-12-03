@@ -28,13 +28,6 @@ alias 'rm=rm -i'
 alias 'mv=mv -i'
 alias 'cp=cp -i'
 
-# SSH aliases
-alias sshflc="ssh -i'/Users/timmygarrabrant/.ssh/ec2_ap-northeast-2_Seoul_FLC_Key-Pair.pem' ubuntu@52.5.207.132"
-alias ssho='ssh -p 22 timmygarrabrant@luigiinred.no-ip.org'
-alias sshts='ssh appthinkshare@thinkshare.technology'
-alias sshbts='ssh betathinkshare@thinkshare.technology'
-alias sshv='ssh vagrant@127.0.0.1:2222'
-
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
