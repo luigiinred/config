@@ -1,0 +1,58 @@
+[user]
+	email = timmy.garrabrant@gmail.com
+	name = Timmy Garrabrant
+[alias]
+	co = checkout
+	st = status
+	ci = commit
+	br = branch
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	type = cat-file -t
+    tree = log --oneline --graph --decorate --all
+	dump = cat-file -p
+        ## JAKE'S ALIASES ##
+	d = diff
+	ds = diff --stat
+	# Logging aliases:
+	l = log --graph --date=format:%c --pretty=format:'%C(auto)%h%d %s  %C(green)%an, %ar %C(cyan)(%ad) %C(auto)'
+	la = log --graph --date=format:%c --pretty=format:'%C(auto)%h%d %s  %C(green)%an, %ar %C(cyan)(%ad) %C(auto)' --all
+	ls = log --graph --date=format:%c --pretty=format:'%C(auto)%h%d %s  %C(green)%an, %ar %C(cyan)(%ad) %C(auto)' --simplify-by-decoration
+	las = log --graph --date=format:%c --pretty=format:'%C(auto)%h%d %s  %C(green)%an, %ar %C(cyan)(%ad) %C(auto)' --all --simplify-by-decoration
+	# Other useful aliases:
+	unstage = reset HEAD
+	staged = diff --cached
+	unstaged = diff
+	current-branch = !git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||'
+	cleanup = !git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -n 1 git branch -D
+
+	# Update all behind branches
+	update = "! \
+		CURRENT_BRANCH=`git current-branch`; \
+		echo \"Current branch is $CURRENT_BRANCH\"; \
+		git co -b dummy_branch; \
+		for branch in `git branch -vv | egrep ': behind \\d*\\]' | awk '{print $1}'`; \
+		do \
+			git checkout $branch; \
+			git merge --ff-only origin/$branch; \
+		done; \
+		git checkout $CURRENT_BRANCH; \
+		git branch -d dummy_branch; \
+        git cleanup;"
+
+	# Version aliases:
+	vrm = "! \
+		git fetch; \
+		echo \" \"; \
+		echo \" \"; \
+		git describe --abbrev=0 origin/develop origin/release origin/master;"
+
+	# branch aliases
+	vv = branch -vv
+[fetch]
+	prune = true
+[pull]
+	ff = only
+[push]
+	default = simple
+[remote "origin"]
+	push = HEAD
