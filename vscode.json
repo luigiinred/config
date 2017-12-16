@@ -1,0 +1,42 @@
+{
+  "editor.fontFamily": "'Source Code Pro', monospace",
+  "editor.fontSize": 16,
+  "editor.renderWhitespace": "all",
+  "workbench.editor.showIcons": true,
+  "window.zoomLevel": 0,
+  "window.nativeTabs": true,
+  "workbench.editor.showTabs": false,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.DS_Store": true
+  },
+  "terminal.external.osxExec": "iTerm.app",
+
+  // Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
+  "editor.formatOnSave": true,
+  // Enable/disable default JavaScript formatter (For Prettier)
+  "javascript.format.enable": false,
+  // Use 'prettier-eslint' instead of 'prettier'. Other settings will only be fallbacks in case they could not be inferred from eslint rules.
+  "prettier.eslintIntegration": true,
+
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    {
+      "language": "javascriptreact",
+      "autoFix": true
+    },
+    {
+      "language": "javascript",
+      "autoFix": true
+    },
+    {
+      "language": "html",
+      "autoFix": true
+    },
+    {
+      "language": "vue",
+      "autoFix": true
+    }
+  ]
+}
